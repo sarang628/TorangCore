@@ -1,0 +1,46 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!--<item name="fontFamily">@font/montserrat</item>-->
+        <item name="android:statusBarColor">@color/colorSecondaryLight</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="TorangAppBarLayout">
+        <item name="android:backgroundTint">@color/colorSecondaryLight</item>
+    </style>
+
+    <style name="CornerSize50Percent" parent="AppTheme">
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="TorangText" />
+
+    <style name="TorangButton">
+        <item name="android:textStyle"></item>
+
+    </style>
+
+    <style name="H1">
+        <item name="android:textSize">96sp</item>
+    </style>
+
+    <style name="H2">
+        <item name="android:textSize">60sp</item>
+    </style>
+
+    <style name="H3">
+        <item name="android:textSize">48sp</item>
+    </style>
+
+    <style name="H4">
+        <item name="android:textSize">34sp</item>
+    </style>
+
+
+</resources>
