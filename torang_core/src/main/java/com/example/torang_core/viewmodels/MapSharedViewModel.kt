@@ -203,11 +203,11 @@ class MapSharedViewModel @Inject constructor(val repository: MapSharedRepository
                     "${prices.toString()}" +
                     "${ratings.toString()}" +
                     "$latitude" +
-                    "$longitude" +
-                    "$latitudeNorthEast" +
-                    "$longitudeNorthEast" +
-                    "$latitudeSouthWest" +
-                    "$latitudeSouthWest"
+                    "$longitude\n" +
+                    "latitudeNorthEast = $latitudeNorthEast\n" +
+                    "latitudeSouthWest = $latitudeSouthWest\n" +
+                    "longitudeNorthEast = $longitudeNorthEast\n" +
+                    "longitudeSouthWest = $longitudeSouthWest\n"
         )
         viewModelScope.launch {
             try {

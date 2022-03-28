@@ -13,8 +13,8 @@ data class NationItem(
 )
 
 data class NationBound(
-    val latitudeNorthWest: Double,
-    val latitudeSouthEast: Double,
-    val longitudeNorthWest: Double,
-    val longitudeSouthEast: Double
+    val latitudeSouthWest: Double,
+    val latitudeNorthEast: Double,
+    val longitudeSouthWest: Double,
+    val longitudeNorthEast: Double
 )
