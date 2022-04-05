@@ -55,10 +55,10 @@ class FilterViewModel @Inject constructor() : ViewModel() {
     var longitudeMyLocation: Double = 0.0
 
     /** 이 지역 위치 */
-    var latitudeNorthWest: Double = 0.0
-    var longitudeNorthWest: Double = 0.0
-    var latitudeSouthEast: Double = 0.0
-    var longitudeSouthEast: Double = 0.0
+    var northEastLatitude: Double = 0.0
+    var northEastLongitude: Double = 0.0
+    var southWestLatitude: Double = 0.0
+    var southWestLongitude: Double = 0.0
 
     private val isShow = MutableLiveData<Boolean>()
 

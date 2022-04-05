@@ -1,5 +1,6 @@
 package com.example.torang_core.data.model
 
+import com.google.gson.annotations.SerializedName
 import java.util.*
 
 class Filter : BaseDataModel() {
@@ -15,8 +16,12 @@ class Filter : BaseDataModel() {
     var ratings = ArrayList<Ratings>()
     var lat = 0.0
     var lon = 0.0
-    var north = 0.0
-    var east = 0.0
-    var south = 0.0
-    var west = 0.0
+    @SerializedName("north")
+    var northEastLongitude = 0.0
+    @SerializedName("east")
+    var northEastLatitude = 0.0
+    @SerializedName("south")
+    var southWestLongitude = 0.0
+    @SerializedName("west")
+    var southWestLatitude = 0.0
 }

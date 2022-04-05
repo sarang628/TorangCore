@@ -191,10 +191,10 @@ class MapSharedViewModel @Inject constructor(val repository: MapSharedRepository
         ratings: ArrayList<Ratings>? = null,
         latitude: Double = 0.0,
         longitude: Double = 0.0,
-        latitudeNorthEast: Double = 0.0,
-        longitudeNorthEast: Double = 0.0,
-        latitudeSouthWest: Double = 0.0,
-        longitudeSouthWest: Double = 0.0,
+        northEastLatitude: Double = 0.0,
+        northEastLongitude: Double = 0.0,
+        southWestLatitude: Double = 0.0,
+        southWestLongitude: Double = 0.0,
         searchType: Filter.SearchType
     ) {
         Logger.v(
@@ -204,10 +204,10 @@ class MapSharedViewModel @Inject constructor(val repository: MapSharedRepository
                     "${ratings.toString()}" +
                     "$latitude" +
                     "$longitude\n" +
-                    "latitudeNorthEast = $latitudeNorthEast\n" +
-                    "latitudeSouthWest = $latitudeSouthWest\n" +
-                    "longitudeNorthEast = $longitudeNorthEast\n" +
-                    "longitudeSouthWest = $longitudeSouthWest\n"
+                    "latitudeNorthEast = $northEastLatitude,\n" +
+                    "latitudeSouthWest = $southWestLatitude,\n" +
+                    "longitudeNorthEast = $northEastLongitude,\n" +
+                    "longitudeSouthWest = $southWestLongitude\n"
         )
         viewModelScope.launch {
             try {
@@ -219,10 +219,10 @@ class MapSharedViewModel @Inject constructor(val repository: MapSharedRepository
                     this.lat = latitude
                     this.lon = longitude
                     this.searchType = searchType
-                    north = longitudeNorthEast
-                    east = latitudeNorthEast
-                    south = longitudeSouthWest
-                    west = latitudeSouthWest
+                    this.northEastLongitude = northEastLongitude
+                    this.northEastLatitude = northEastLatitude
+                    this.southWestLongitude = southWestLongitude
+                    this.southWestLatitude = southWestLatitude
                 }
                 _restaurants.postValue(repository.getFilterRestaurant(filter))
 
