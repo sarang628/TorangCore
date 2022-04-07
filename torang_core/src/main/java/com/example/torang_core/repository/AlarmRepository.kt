@@ -9,7 +9,6 @@ interface AlarmRepository : LoginCheckableRepository {
 
     suspend fun deleteAlarm()
 
+    //사용자 로그인상태를 판단하는 데이터
     fun user() : LiveData<LoggedInUserData?>
-
-    suspend fun testLogout()
 }
