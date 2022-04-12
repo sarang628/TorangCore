@@ -6,6 +6,8 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.torang_core.data.model.LoggedInUserData
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.StateFlow
 
 @Dao
 interface LoggedInUserDao {
@@ -23,4 +25,7 @@ interface LoggedInUserDao {
 
     @Query("delete from LoggedInUserData where constId = 1")
     suspend fun clear()
+
+    @Query("select COUNT(*) from LoggedInUserData")
+    fun isLpogin(): Flow<Int>
 }

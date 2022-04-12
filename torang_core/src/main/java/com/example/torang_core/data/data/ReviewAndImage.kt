@@ -13,18 +13,18 @@ import java.io.File
 import java.util.HashMap
 
 data class ReviewAndImage(
-    @Embedded val review: FeedData?,
+    @Embedded val review: FeedData? = null,
     @Relation(
         parentColumn = "review_id",
         entityColumn = "review_id"
     )
-    val images: List<ReviewImage>?,
+    val images: List<ReviewImage>? = null,
 
     @Relation(
         parentColumn = "user_id",
         entityColumn = "userId"
     )
-    val user: UserData?
+    val user: UserData? = null
 ) {
     fun toMap(): HashMap<String, RequestBody> {
         val params: HashMap<String, RequestBody> = HashMap()
