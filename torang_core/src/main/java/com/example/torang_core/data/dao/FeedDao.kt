@@ -30,4 +30,7 @@ interface FeedDao {
 
     @Query("DELETE FROM FeedData where review_id = (:reviewId)")
     suspend fun deleteFeed(reviewId: Int)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAll(plantList: List<FeedData>)
 }

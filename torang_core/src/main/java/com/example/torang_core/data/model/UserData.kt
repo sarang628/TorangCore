@@ -3,6 +3,7 @@ package com.example.torang_core.data.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.google.gson.GsonBuilder
 
 @Entity
 data class UserData(
@@ -44,5 +45,10 @@ data class UserData(
                 following = user.following.toString()
             )
         }
+    }
+
+    override fun toString(): String {
+        val gson = GsonBuilder().setPrettyPrinting().create()
+        return gson.toJson(this)
     }
 }
