@@ -6,20 +6,10 @@
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
-    buildToolsVersion rootProject.buildToolsVersion
-
-    defaultConfig {
-        minSdkVersion rootProject.minSdkVersion
-        targetSdkVersion rootProject.targetSdkVersion
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
-
     buildFeatures {
         dataBinding true
         viewBinding true
     }
-
 }
 
 dependencies {
@@ -48,21 +38,4 @@ dependencies {
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hiltViewModelVersion"
     kapt "androidx.hilt:hilt-compiler:$hiltViewModelVersion"
     annotationProcessor "androidx.hilt:hilt-compiler:$hiltViewModelVersion"
-
-
-    /*
-    // Testing dependencies
-    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hiltVersion"
-    androidTestImplementation "androidx.arch.core:core-testing:$coreTestingVersion"
-    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
-    androidTestImplementation "androidx.test.espresso:espresso-intents:$espressoVersion"
-    androidTestImplementation "androidx.test.ext:junit:$testExtJunit"
-    androidTestImplementation "androidx.test.uiautomator:uiautomator:$uiAutomatorVersion"
-    androidTestImplementation "androidx.work:work-testing:$workVersion"
-    androidTestImplementation "com.google.truth:truth:$truthVersion"
-    androidTestImplementation "com.google.dagger:hilt-android-testing:$hiltVersion"
-    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
-    testImplementation "junit:junit:$junitVersion"
-    */
 }

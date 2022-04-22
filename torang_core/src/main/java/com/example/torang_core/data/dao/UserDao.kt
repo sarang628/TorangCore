@@ -21,6 +21,9 @@ interface UserDao {
     suspend fun insertAll(users: List<UserData>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertUser(user: UserData)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertUserAndPictureAndLikeAndRestaurantAndFeed(
         users: List<UserData>,
         reviewImages: List<ReviewImage>,
@@ -33,13 +36,15 @@ interface UserDao {
     @Delete
     suspend fun delete(user: UserData)
 
-    @Query("""
+    @Query(
+        """
             SELECT FeedData.*, userdata.profile_pic_url, userdata.userName, userdata.userId, RestaurantData.restaurant_name, RestaurantData.restaurant_id  
             FROM FeedData  
             JOIN userdata ON FeedData.user_id =  userdata.userId 
             LEFT OUTER JOIN RestaurantData ON FeedData.restaurant_id = restaurantdata.restaurant_id 
             ORDER BY create_date DESC
-            """)
+            """
+    )
     fun getAllFeed(): LiveData<List<Feed>>
 
 

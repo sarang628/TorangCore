@@ -10,8 +10,8 @@ package com.example.torang_core.data.uistate
  */
 data class MyReviewItemUiState(
     val review_id: Int,
-    val reviewImageUrl: String,
+    val reviewImageUrl: String? = null,
     val rating: Float,
-    val contents: String,
-    val uploadDate: String
+    val contents: String? = null,
+    val uploadDate: String? = null
 )
