@@ -1,5 +1,6 @@
 package com.example.torang_core.data.model
 
+import com.example.torang_core.data.data.MyReview
 import okhttp3.MediaType
 import okhttp3.RequestBody
 import java.util.*
@@ -36,6 +37,16 @@ class Review {
         //params.put("review_id", RequestBody.create(MediaType.parse("text/plain"), "" + review_id));
         //params.put("rating", RequestBody.create(MediaType.parse("text/plain"), "" + rating));
         return params
+    }
+
+    fun toMyReview(): MyReview {
+        return MyReview(
+            review_id = this.review_id,
+            reviewImageUrl = pictures[0].picture_url,
+            rating = if (feed.rating != null) feed.rating!! else 0f,
+            contents = this.contents,
+            uploadDate = this.create_date
+        )
     }
 
     /*if (like == null) {
