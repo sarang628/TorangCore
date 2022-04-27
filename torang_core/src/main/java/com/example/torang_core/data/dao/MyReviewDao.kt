@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.torang_core.data.data.ReviewAndImage
 import com.example.torang_core.data.model.*
-import com.example.torang_core.data.uistate.MyReviewItemUiState
 import kotlinx.coroutines.flow.Flow
 
 @Dao
