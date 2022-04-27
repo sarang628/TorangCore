@@ -16,7 +16,7 @@ interface MyReviewDao {
     fun getMyReviews(userId: Int, restaurantId: Int): LiveData<List<ReviewAndImage>>
 
 
-    @Query(
+    /*@Query(
         """
                 select FeedData.review_id
                 ,picture_url as reviewImageUrl
@@ -40,5 +40,5 @@ interface MyReviewDao {
                 and FeedData.user_id = (:userId) and FeedData.restaurant_id = (:restaurantId)
             """
     )
-    fun getMyReviews2(userId: Int, restaurantId: Int): Flow<List<MyReviewItemUiState>>
+    fun getMyReviews2(userId: Int, restaurantId: Int): Flow<List<MyReviewItemUiState>>*/
 }
