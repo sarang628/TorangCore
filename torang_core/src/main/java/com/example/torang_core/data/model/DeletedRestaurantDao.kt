@@ -7,7 +7,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
 @Dao
-interface RestaurantDao {
+interface DeletedRestaurantDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllRestaurant(restaurants: ArrayList<RestaurantData>)
 
