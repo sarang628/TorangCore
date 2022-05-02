@@ -49,7 +49,6 @@ abstract class AppDatabase : RoomDatabase() {
         }
 
         private fun buildDatabase(context: Context): AppDatabase {
-            Log.d("__torang", "buildDatabase1")
             return Room.databaseBuilder(
                 context, AppDatabase::class.java,
                 DATABASE_NAME
