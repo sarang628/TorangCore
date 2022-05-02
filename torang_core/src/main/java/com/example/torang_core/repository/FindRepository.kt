@@ -24,8 +24,11 @@ interface FindRepository {
     fun getIsFirstRequestLocation(): StateFlow<Boolean>
 
     // 상태를 가져오고 뷰에서 위치 요청을 했다면 요청했다고 저장소에 알려주기
-    suspend fun notifyRequestedLocation()
+    suspend fun notifyRequestLocation()
 
+    // 현재 위치를 요청중인지
     fun isRequestingLocation(): StateFlow<Boolean>
-    suspend fun onReceiveLocation()
+
+    // 위치를 받아왔을때 알려줘야함
+    suspend fun notifyReceiveLocation()
 }
