@@ -1,5 +1,7 @@
 package com.example.torang_core.data.model
 
+import android.text.TextUtils
+
 /**
  *
  */
@@ -18,6 +20,10 @@ enum class RestaurantType {
                 NONE -> ""
             }
         }
+
+    override fun toString(): String {
+        return this.toName
+    }
 }
 
 object RestaurantTypeObject {
@@ -25,3 +31,9 @@ object RestaurantTypeObject {
         return restaurantType?.toName ?: ""
     }
 }
+
+val ArrayList<RestaurantType>.name: String
+    get() = if (this.size == 0) "음식종류" else TextUtils.join(
+        ",",
+        this
+    )

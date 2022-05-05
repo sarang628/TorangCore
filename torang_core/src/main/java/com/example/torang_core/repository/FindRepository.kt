@@ -17,7 +17,7 @@ interface FindRepository {
         northEastLongitude: Double = 0.0,
         southWestLatitude: Double = 0.0,
         southWestLongitude: Double = 0.0,
-        searchType: Filter.SearchType
+        searchType: SearchType
     )
 
     // 최초위치요청 상태 가져오기
