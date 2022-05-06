@@ -36,4 +36,7 @@ interface FindRepository {
     suspend fun searchBoundRestaurant()
 
     fun getSearchBoundRestaurnatTrigger(): StateFlow<Boolean>
+
+    suspend fun setCurrentPosition(position: Int)
+    fun getCurrentPosition(): StateFlow<Int>
 }
