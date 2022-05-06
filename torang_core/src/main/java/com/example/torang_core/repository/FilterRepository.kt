@@ -10,4 +10,5 @@ interface FilterRepository {
     suspend fun selectPrice(price: Prices)
     suspend fun selectRatings(ratings: Ratings)
     suspend fun selectDistance(distances: Distances)
+    suspend fun getFilter(): Filter
 }

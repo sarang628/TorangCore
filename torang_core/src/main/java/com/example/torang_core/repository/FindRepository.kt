@@ -31,4 +31,9 @@ interface FindRepository {
 
     // 위치를 받아왔을때 알려줘야함
     suspend fun notifyReceiveLocation()
+
+    // 이 지역 검색 요청
+    suspend fun searchBoundRestaurant()
+
+    fun getSearchBoundRestaurnatTrigger(): StateFlow<Boolean>
 }
