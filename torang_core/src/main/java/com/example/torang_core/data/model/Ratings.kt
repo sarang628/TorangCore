@@ -1,5 +1,7 @@
 package com.example.torang_core.data.model
 
+import android.text.TextUtils
+
 /**
  *
  */
@@ -16,6 +18,15 @@ enum class Ratings {
                 FOUR -> "4점대"
                 FIVE -> "5점대"
             }
-            return ""
         }
+
+    override fun toString(): String {
+        return toName
+    }
 }
+
+val ArrayList<Ratings>.name: String
+    get() = if (this.size == 0) "평점" else TextUtils.join(
+        ",",
+        this
+    )
