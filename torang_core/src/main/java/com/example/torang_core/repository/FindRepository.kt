@@ -5,7 +5,10 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.StateFlow
 
 interface FindRepository {
+    /** 검색 된 맛집 */
     fun getSearchedRestaurant(): Flow<List<Restaurant>>
+
+    /** 맛집 검색 */
     suspend fun searchRestaurant(
         distances: Distances? = null,
         restaurantType: ArrayList<RestaurantType>? = null,
@@ -35,8 +38,10 @@ interface FindRepository {
     // 이 지역 검색 요청
     suspend fun searchBoundRestaurant()
 
+    /** 검색 요청 트리거 */
     fun getSearchBoundRestaurnatTrigger(): StateFlow<Boolean>
 
+    /** 현재 포커스된 레스토랑의 위치 값 */
     suspend fun setCurrentPosition(position: Int)
     fun getCurrentPosition(): StateFlow<Int>
 }
