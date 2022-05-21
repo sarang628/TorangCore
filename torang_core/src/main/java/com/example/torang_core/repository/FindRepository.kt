@@ -2,6 +2,7 @@ package com.example.torang_core.repository
 
 import com.example.torang_core.data.model.*
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
 interface FindRepository {
@@ -44,4 +45,15 @@ interface FindRepository {
     /** 현재 포커스된 레스토랑의 위치 값 */
     suspend fun setCurrentPosition(position: Int)
     fun getCurrentPosition(): StateFlow<Int>
+
+    suspend fun isFirstRequestLocationPermission(): StateFlow<Boolean>
+
+    /**
+     *  위치원한 요청에 대한 사용자 응답
+     */
+    suspend fun requestLocationPermission(b: Boolean)
+    suspend fun checkFirstRequestLocationPermission()
+
+    fun hasGrantPermission(): MutableStateFlow<Int>
+    suspend fun permissionGranated()
 }

@@ -126,7 +126,7 @@ object Logger {
             val currentStack = stack[1]
             val log =
                 currentStack.fileName + "::" + currentStack.methodName + "(" + currentStack.lineNumber + ")" + ": " + str
-            Log.v(TAG, log)
+            Log.w(TAG, log)
             writeFile(log)
         }
     }
