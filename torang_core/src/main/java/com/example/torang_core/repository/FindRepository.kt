@@ -28,7 +28,7 @@ interface FindRepository {
     fun getIsFirstRequestLocation(): StateFlow<Boolean>
 
     // 상태를 가져오고 뷰에서 위치 요청을 했다면 요청했다고 저장소에 알려주기
-    suspend fun notifyRequestLocation()
+    suspend fun notifyRequestLocation(): RequestLocationResult
 
     // 현재 위치를 요청중인지
     fun isRequestingLocation(): StateFlow<Boolean>
@@ -52,8 +52,14 @@ interface FindRepository {
      *  위치원한 요청에 대한 사용자 응답
      */
     suspend fun requestLocationPermission(b: Boolean)
-    suspend fun checkFirstRequestLocationPermission()
 
     fun hasGrantPermission(): MutableStateFlow<Int>
     suspend fun permissionGranated()
+}
+
+enum class RequestLocationResult {
+    NEED_LOCATION_PERMISSION, // 처음 요청 시 위치 권한 필요 팝업이 필요할 시
+    PERMISSION_DENIED, // 처음 권한 알림팝업을 취소하거나 위치권한을 거부했을 경우
+    GPS_OFF, // GPS가 꺼져있음
+    SUCCESS // 위치 권한을 얻었을 때
 }
