@@ -25,4 +25,6 @@ interface MapRepository {
     fun getNorthEastLongitude(): Double
     fun getSouthWestLatitude(): Double
     fun getSouthWestLongitude(): Double
+
+    suspend fun showCard()
 }
