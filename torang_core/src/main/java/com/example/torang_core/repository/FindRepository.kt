@@ -55,6 +55,11 @@ interface FindRepository {
 
     fun hasGrantPermission(): MutableStateFlow<Int>
     suspend fun permissionGranated()
+
+    /** 맛집카드, 필터 보여지는 여부 */
+    fun showRestaurantCardAndFilter(): Flow<Boolean>
+    /** 맵 클릭 시 맛집카드, 필터 보여지는 기능과 관련되어 추가 */
+    suspend fun clickMap()
 }
 
 enum class RequestLocationResult {
