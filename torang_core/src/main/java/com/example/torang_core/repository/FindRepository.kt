@@ -20,6 +20,8 @@ interface FindRepository {
     suspend fun requestLocationPermission(b: Boolean)
     /** */
     suspend fun permissionGranated()
+    /** 맵 클릭 시 맛집카드, 필터 보여지는 기능과 관련되어 추가 */
+    suspend fun clickMap()
 
     /** 검색 된 맛집 */
     fun getSearchedRestaurant(): Flow<List<Restaurant>>
@@ -33,7 +35,8 @@ interface FindRepository {
     fun getCurrentPosition(): StateFlow<Int>
     /** 권한 소유 여부 */
     fun hasGrantPermission(): MutableStateFlow<Int>
-
+    /** 맛집카드, 필터 보여지는 여부 */
+    fun showRestaurantCardAndFilter(): Flow<Boolean>
 }
 
 enum class RequestLocationResult {

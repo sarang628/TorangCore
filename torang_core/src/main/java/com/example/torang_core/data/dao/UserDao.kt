@@ -33,6 +33,21 @@ interface UserDao {
         favorites: List<Favorite>,
     )
 
+    @Transaction
+    suspend fun deleteAllAndInsertAll(
+        users: List<UserData>,
+        reviewImages: List<ReviewImage>,
+        likes: List<Like>,
+        restaurants: List<RestaurantData>,
+        feedData: List<FeedData>,
+        favorites: List<Favorite>,
+        deleteLikes: List<Like>,
+    ) {
+        deleteLikes(deleteLikes)
+        deleteAll()
+        insertUserAndPictureAndLikeAndRestaurantAndFeed(users,reviewImages, likes, restaurants,feedData, favorites)
+    }
+
     @Delete
     suspend fun delete(user: UserData)
 
