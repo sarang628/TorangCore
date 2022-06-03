@@ -22,6 +22,8 @@ interface FindRepository {
     suspend fun permissionGranated()
     /** 맵 클릭 시 맛집카드, 필터 보여지는 기능과 관련되어 추가 */
     suspend fun clickMap()
+    /** */
+    suspend fun searchIfRestaurantEmpty()
 
     /** 검색 된 맛집 */
     fun getSearchedRestaurant(): Flow<List<Restaurant>>
