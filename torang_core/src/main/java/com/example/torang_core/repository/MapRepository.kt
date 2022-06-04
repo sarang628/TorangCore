@@ -1,8 +1,10 @@
 package com.example.torang_core.repository
 
 import androidx.lifecycle.LiveData
+import com.example.torang_core.data.data.Location
 import com.example.torang_core.data.model.RestaurantData
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.StateFlow
 
 interface MapRepository {
     @Deprecated("findRepository로 이동")
@@ -28,4 +30,7 @@ interface MapRepository {
     fun getSouthWestLongitude(): Double
 
     suspend fun showCard()
+
+    suspend fun setCurrentLocation(location : Location)
+    fun getCurrentLocationFlow() : StateFlow<Location>
 }
