@@ -12,6 +12,7 @@ interface MapRepository {
     suspend fun loadRestaurant()
 
     /** 맵 클릭 시 정보 표시 여부 애니메이션 */
+    @Deprecated("findRepository로 이동")
     fun getClickMap(): Flow<Boolean>
     suspend fun clickMap()
 

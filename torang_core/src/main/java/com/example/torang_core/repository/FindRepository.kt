@@ -12,8 +12,6 @@ interface FindRepository {
     suspend fun notifyRequestLocation(): RequestLocationResult
     /** 위치를 받아왔을때 알려줘야함 */
     suspend fun notifyReceiveLocation()
-    /** 이 지역 검색 요청 */
-    suspend fun searchBoundRestaurant()
     /** 현재 포커스된 레스토랑의 위치 값 */
     suspend fun setCurrentPosition(position: Int)
     /** 위치원한 요청에 대한 사용자 응답 */
@@ -24,15 +22,12 @@ interface FindRepository {
     suspend fun clickMap()
     /** */
     suspend fun searchIfRestaurantEmpty()
-
     /** 검색 된 맛집 */
     fun getSearchedRestaurant(): Flow<List<Restaurant>>
     /** 최초위치요청 상태 가져오기 */
     fun getIsFirstRequestLocation(): StateFlow<Boolean>
     /** 현재 위치를 요청중인지 */
     fun isRequestingLocation(): StateFlow<Boolean>
-    /** 검색 요청 트리거 */
-    fun getSearchBoundRestaurnatTrigger(): StateFlow<Boolean>
     /** 현재 포커스된 맛집 위치 */
     fun getCurrentPosition(): StateFlow<Int>
     /** 권한 소유 여부 */
