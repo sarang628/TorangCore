@@ -38,7 +38,7 @@ interface FindRepository {
     /** 권한 소유 여부 */
     fun hasGrantPermission(): MutableStateFlow<Int>
     /** 맛집카드, 필터 보여지는 여부 */
-    fun showRestaurantCardAndFilter(): Flow<Boolean>
+    fun showRestaurantCardAndFilter(): StateFlow<Boolean>
 }
 
 enum class RequestLocationResult {
