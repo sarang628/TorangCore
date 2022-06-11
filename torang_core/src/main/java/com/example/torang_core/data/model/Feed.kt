@@ -10,11 +10,11 @@ data class Feed(
     val contents: String? = null,
     val create_date: String? = null,
     val rating: Float? = 0f,
-    val userName: String? = null,
-    val profile_pic_url: String? = null,
+    val userName: String? = "",
+    val profile_pic_url: String? = "",
     val like_amount: Int? = 0,
     val comment_amount: Int? = 0,
-    @ColumnInfo(name = "restaurant_name") val restaurantName: String? = null,
+    @ColumnInfo(name = "restaurant_name") val restaurantName: String? = "",
     @ColumnInfo(name = "restaurant_id") val restaurantId: Int? = 0
 ) {
     fun toReview(): Review {
@@ -23,12 +23,36 @@ data class Feed(
         }
     }
 
-    companion object{
-        fun parse(reviewAndImage: ReviewAndImage) : Feed{
+    companion object {
+        fun parse(reviewAndImage: ReviewAndImage): Feed {
             return Feed(
                 userId = reviewAndImage.user!!.userId,
                 review_id = reviewAndImage.review!!.review_id
             )
         }
     }
+}
+
+fun Feed.profilePicUrl(): String {
+    var url = ""
+    profile_pic_url?.let {
+        url = it
+    }
+    return url
+}
+
+fun Feed.userName(): String {
+    var nm = "";
+    userName?.let {
+        nm = it
+    }
+    return nm
+}
+
+fun Feed.restaurantName(): String {
+    var nm = "";
+    restaurantName?.let {
+        nm = it
+    }
+    return nm
 }
