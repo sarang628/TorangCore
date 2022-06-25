@@ -62,6 +62,13 @@ interface UserDao {
     )
     fun getAllFeed(): LiveData<List<Feed>>
 
+    @Query("""
+        SELECT * 
+        FROM FeedData 
+        ORDER BY FeedData.create_date DESC
+        """)
+    fun getAllFeedAndImage(): LiveData<List<ReviewAndImage>>
+
 
     @Query("select * from FeedData where review_id = (:reviewId) order by FeedData.create_date desc")
     fun getFeed(reviewId: Int): LiveData<ReviewAndImage>

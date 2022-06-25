@@ -56,3 +56,24 @@ fun Feed.restaurantName(): String {
     }
     return nm
 }
+
+fun Feed.toFeedUiState(): FeedUiState {
+    return FeedUiState(
+        reviewId = this.review_id,
+        userName = this.userName(),
+        restaurantName = this.restaurantName(),
+        profileImageUrl = "",
+        reivewImages = arrayListOf("", ""),
+        isLike = false,
+        isFavorite = false,
+        likeCount = 0
+    )
+}
+
+fun List<Feed>.toFeedUiStateLis(): List<FeedUiState> {
+    val list = ArrayList<FeedUiState>()
+    for (feed in this) {
+        list.add(feed.toFeedUiState())
+    }
+    return list
+}

@@ -2,15 +2,9 @@ package com.example.torang_core.data.data
 
 import androidx.room.Embedded
 import androidx.room.Relation
-import com.example.torang_core.data.model.FeedData
-import com.example.torang_core.data.model.Review
-import com.example.torang_core.data.model.ReviewImage
-import com.example.torang_core.data.model.UserData
+import com.example.torang_core.data.model.*
 import okhttp3.MediaType
-import okhttp3.MultipartBody
 import okhttp3.RequestBody
-import java.io.File
-import java.util.HashMap
 
 data class ReviewAndImage(
     @Embedded val review: FeedData? = null,
@@ -57,3 +51,25 @@ data class ReviewAndImage(
     }
 }
 
+//TODO::코틀린 null 처리 방법
+fun ReviewAndImage.toFeedUiState(): FeedUiState {
+    TODO("코틀린 null 처리 방법 파악 후 구현하기")
+    /*return FeedUiState(
+        reviewId = this.review?.review_id,
+        userName = this.userName(),
+        restaurantName = this.restaurantName(),
+        profileImageUrl = "",
+        reivewImages = arrayListOf("", ""),
+        isLike = false,
+        isFavorite = false,
+        likeCount = 0
+    )*/
+}
+
+fun List<ReviewAndImage>.toFeedUiStateLis(): List<FeedUiState> {
+    val list = ArrayList<FeedUiState>()
+    for (feed in this) {
+        list.add(feed.toFeedUiState())
+    }
+    return list
+}

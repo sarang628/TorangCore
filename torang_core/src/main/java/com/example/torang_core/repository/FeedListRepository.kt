@@ -1,6 +1,7 @@
 package com.example.torang_core.repository
 
 import androidx.lifecycle.LiveData
+import com.example.torang_core.data.data.ReviewAndImage
 import com.example.torang_core.data.model.*
 
 interface FeedListRepository {
@@ -8,6 +9,8 @@ interface FeedListRepository {
     fun getReviewImages(reviewId: Int): LiveData<List<ReviewImage>>
     // 피드 리스트 불러오기
     fun getFeed(): LiveData<List<Feed>>
+    // 피드 리스트 불러오기
+    fun getFeed1(): LiveData<List<ReviewAndImage>>
     // 피드 리스트 갱신하기
     suspend fun loadFeed()
     // 좋아요 처리
