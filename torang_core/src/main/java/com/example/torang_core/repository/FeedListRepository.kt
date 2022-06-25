@@ -11,6 +11,8 @@ interface FeedListRepository {
     fun getFeed(): LiveData<List<Feed>>
     // 피드 리스트 불러오기
     fun getFeed1(): LiveData<List<ReviewAndImage>>
+    // 피드 리스트 불러오기
+    fun getFeed2(): LiveData<List<Feed1>>
     // 피드 리스트 갱신하기
     suspend fun loadFeed()
     // 좋아요 처리

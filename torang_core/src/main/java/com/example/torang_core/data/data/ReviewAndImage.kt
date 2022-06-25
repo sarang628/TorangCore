@@ -52,24 +52,30 @@ data class ReviewAndImage(
 }
 
 //TODO::코틀린 null 처리 방법
-fun ReviewAndImage.toFeedUiState(): FeedUiState {
-    TODO("코틀린 null 처리 방법 파악 후 구현하기")
-    /*return FeedUiState(
-        reviewId = this.review?.review_id,
-        userName = this.userName(),
-        restaurantName = this.restaurantName(),
-        profileImageUrl = "",
-        reivewImages = arrayListOf("", ""),
-        isLike = false,
-        isFavorite = false,
-        likeCount = 0
-    )*/
+fun ReviewAndImage.toFeedUiState(): FeedUiState? {
+
+    if (this.review != null && this.user != null) {
+        return FeedUiState(
+            reviewId = review.review_id,
+            userName = if (user.userName == null) "" else user.userName,
+            restaurantName = "" + review.restaurant_id,
+            profileImageUrl = if (user.profile_pic_url == null) "" else user.profile_pic_url,
+            reivewImages = arrayListOf(""),
+            isLike = false,
+            isFavorite = false,
+            likeCount = 10,
+            commentCount = 10
+            )
+    }
+    return null
 }
 
 fun List<ReviewAndImage>.toFeedUiStateLis(): List<FeedUiState> {
     val list = ArrayList<FeedUiState>()
-    for (feed in this) {
-        list.add(feed.toFeedUiState())
+    for (reviewAndImage in this) {
+        reviewAndImage.toFeedUiState()?.let {
+            list.add(it)
+        }
     }
     return list
 }

@@ -14,9 +14,10 @@ data class ReviewImage(
     val menu_id: Int,
     val menu: Int
 ) {
-    fun getPictureUrl(){
+    fun getPictureUrl() {
 
     }
+
     companion object {
         fun Picture.toReviewImage(): ReviewImage {
             return ReviewImage(
@@ -57,4 +58,12 @@ data class ReviewImage(
             )
         }
     }
+}
+
+fun List<ReviewImage>.toStringArray(): ArrayList<String> {
+    val list = ArrayList<String>()
+    for (reviewImage in this) {
+        list.add("http://sarang628.iptime.org:91/review_images/"+reviewImage.picture_url)
+    }
+    return list
 }

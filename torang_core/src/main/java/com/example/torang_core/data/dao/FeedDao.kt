@@ -7,7 +7,8 @@ import com.example.torang_core.data.model.*
 
 @Dao
 interface FeedDao {
-    @Query("""
+    @Query(
+        """
         SELECT FeedData.*, userdata.profile_pic_url, userdata.userName, userdata.userId, RestaurantData.restaurant_name, RestaurantData.restaurant_id
         FROM FeedData 
         JOIN userdata ON FeedData.user_id =  userdata.userId
@@ -18,14 +19,16 @@ interface FeedDao {
     )
     fun getMyFeed(userId: Int): LiveData<List<Feed>>
 
-    @Query("""
+    @Query(
+        """
         SELECT FeedData.*, userdata.profile_pic_url, userdata.userName, userdata.userId, RestaurantData.restaurant_name, RestaurantData.restaurant_id
         FROM FeedData 
         JOIN userdata ON FeedData.user_id =  userdata.userId
         LEFT OUTER JOIN RestaurantData ON FeedData.restaurant_id = restaurantdata.restaurant_id
         WHERE review_id IN (Select review_id from Favorite where user_id = (:userId) )
         ORDER BY create_date DESC
-        """)
+        """
+    )
     fun getMyFavorite(userId: Int): LiveData<List<Feed>>
 
     @Query("DELETE FROM FeedData where review_id = (:reviewId)")
@@ -33,4 +36,13 @@ interface FeedDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(plantList: List<FeedData>)
+
+    @Query(
+        """
+        SELECT * 
+        FROM FeedData 
+        ORDER BY FeedData.create_date DESC
+        """
+    )
+    fun getFeeds1(): LiveData<List<Feed1>>
 }
