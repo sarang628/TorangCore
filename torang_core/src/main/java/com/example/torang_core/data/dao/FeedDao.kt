@@ -50,7 +50,9 @@ interface FeedDao {
     fun getFeed(): LiveData<List<Feed1Data>>
 
     @Query("""
-       SELECT * FROM FeedData
+       SELECT * 
+       FROM FeedData
+       ORDER BY FeedData.create_date DESC
     """)
     fun getFeed1(): Flow<List<Feed1Data>>
 }
