@@ -1,0 +1,3 @@
+//rootProject.name = "TorangCore"
+//include ':app'
+include ':library'
